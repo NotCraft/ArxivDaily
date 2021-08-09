@@ -1,0 +1,18 @@
+site_title = "ArxivDaily"
+cache_max_days = 7
+sources = [
+    "http://export.arxiv.org/rss/cs.CL",
+    "http://export.arxiv.org/rss/cs.IR",
+    "http://export.arxiv.org/rss/cs.MM",
+    "http://export.arxiv.org/rss/cs.CV",
+    "http://export.arxiv.org/rss/cs.LG"
+]
+
+# proxy = "http://127.0.0.1:7890" ## Optional: default is None
+# statics_dir   = "statics"       ## Optional: default is "statics"
+# templates_dir = "includes"      ## Optional: default is "includes"
+# cache_url = "https://GITHUB_USERNAME.github.io/REPO_NAME/cache.json"
+
+[scripts]
+highlight_title = "scripts/highlight_title.rhai"
+highlight_author = "scripts/highlight_author.rhai"

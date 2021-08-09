@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{site_title}}</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link href="index.css" rel="stylesheet"/>
+</head>
+
+<body>
+<a href="https://github.com/AlongWY/ArxivDaily" style="margin: 0 auto;padding: 0.5em 1em;">AlongWY/ArxivDaily</a>
+<h1>{{title}}</h1>
+{{#each days}}
+    <section class="daily-content">
+        <h2 class="daily-heading">
+            <time datetime="{{date}}">{{date}}</time>
+        </h2>
+        <ul class="sources card">
+            {{#each channels}}
+                <li class="source">
+                    <!--<details>-->
+                    <!--<summary>-->
+                    <h3 class="source-name">
+                        <a class="source-name__link" href="{{url}}">{{title}} </a>
+                    </h3>
+                    <!--</summary>-->
+                    <section>
+                        {{#each items}}
+                            <article>
+                                <details class="article-expander">
+                                    <summary class="article-expander__title">
+                                        {{highlight_title title dublin_core_ext.creators}}
+                                    </summary>
+                                    <div class="article-authors">
+                                        {{highlight_author dublin_core_ext.creators}}
+                                    </div>
+                                    <a class="article-summary-link article-summary-box-outer" href="{{link}}">
+                                        <div class="article-summary-box-inner">
+                                            <span>{{description}}</span>
+                                        </div>
+                                    </a>
+                                </details>
+                            </article>
+                        {{/each}}
+                    </section>
+                    <!--</details>-->
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+{{/each}}
+
+</body>
+
+<footer>
+    <time id="build-timestamp" datetime="{{build_time}}">{{build_time}}</time>
+</footer>
+
+</html>
