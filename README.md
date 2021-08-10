@@ -1,5 +1,4 @@
-# ArxivDaily
-
+# ArxivDaily ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/AlongWY/ArxivDaily/Rss%20Feed?style=for-the-badge)
 An RSS feed reader for "ArxivDaily".
 
 ## Features

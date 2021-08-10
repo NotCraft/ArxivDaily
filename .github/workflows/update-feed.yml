@@ -1,4 +1,4 @@
-name: Build site on schedule or main branch update
+name: Rss Feed
 
 on:
   push:
