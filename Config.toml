@@ -7,9 +7,10 @@ sources = [
     "http://export.arxiv.org/rss/cs.CV",
     "http://export.arxiv.org/rss/cs.LG"
 ]
-# proxy = "socks5://127.0.0.1:7890"
+minify = true
 cache_url = "https://alongwy.top/ArxivDaily/cache.json"
 
+#proxy = "socks5://127.0.0.1:7890"
 [scripts]
 highlight_title = "scripts/highlight_title.rhai"
 highlight_author = "scripts/highlight_author.rhai"

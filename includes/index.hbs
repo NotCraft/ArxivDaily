@@ -12,22 +12,37 @@
 </head>
 
 <body>
-<a href="https://github.com/AlongWY/ArxivDaily" style="margin: 0 auto;padding: 0.5em 1em;">AlongWY/ArxivDaily</a>
+
+<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+<section class="header-container">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <div>
+            <a href="https://github.com/AlongWY/ArxivDaily" style="text-decoration: none;">
+                <div class="header-title">
+                    <span class="header-title-preffix">AlongWY</span>//ArxivDaily
+                </div>
+            </a>
+        </div>
+
+        <div class=icons>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox"/>
+                <i class="lni lni-32 lni-sun" rel="noopener noreferrer"></i>
+            </label>
+        </div>
+    </div>
+</section>
+
 {{#each days}}
-    <section class="daily-content">
-        <h2 class="daily-heading">
-            <time datetime="{{date}}">{{date}}</time>
-        </h2>
-        <ul class="sources card">
-            {{#each channels}}
-                <li class="source">
-                    <!--<details>-->
-                    <!--<summary>-->
-                    <h3 class="source-name">
-                        <a class="source-name__link" href="{{url}}">{{title}} </a>
-                    </h3>
-                    <!--</summary>-->
-                    <section>
+    <section class="day-container">
+        <div class="date">{{date}}</div>
+
+        {{#each channels}}
+            <article>
+                <details>
+                    <Summary>{{title}}</Summary>
+                    <div class="details-content">
+                        <p style="text-align:center;">{{description}}</p>
                         {{#each items}}
                             <article>
                                 <details class="article-expander">
@@ -45,11 +60,10 @@
                                 </details>
                             </article>
                         {{/each}}
-                    </section>
-                    <!--</details>-->
-                </li>
-            {{/each}}
-        </ul>
+                    </div>
+                </details>
+            </article>
+        {{/each}}
     </section>
 {{/each}}
 
@@ -68,6 +82,39 @@
         integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
         crossorigin="anonymous"></script>
 <script>
+    /* Exapand/Collapse with TAB key */
+    var expanded = false;
+    document.onkeydown = function (e) {
+        if (e.keyCode === 9) {
+            expanded = !expanded;
+            document.querySelectorAll("details").forEach(detail => detail.open = expanded);
+            return false;
+        }
+    };
+
+    /* Switch Theme */
+    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light'); //add this
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark'); //add this
+        }
+    }
+
+    toggleSwitch.addEventListener('change', switchTheme, false);
+    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'light') {
+            toggleSwitch.checked = true;
+        }
+    }
+
+    // Render latex code
     document.addEventListener("DOMContentLoaded", function () {
         renderMathInElement(document.body, {
             delimiters: [
