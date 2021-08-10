@@ -8,7 +8,7 @@ on:
     # Adjust refresh schedule here. By default, it runs once per day.
     # Syntax reference: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule
     # Recommended tool: https://crontab.guru/
-    - cron: "0,15,30,45 0,23 * * 1-5"
+    - cron: "0,15,30,45 1,12,23 * * 1-5"
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
           repo: NotCraft/NotFeed
           match: "notfeed-.+-x86_64-unknown-linux-musl.tar.gz$"
           rename: notfeed.tgz
-      - name: Install NotFeed
+      - name: Build rss
         run: |
           tar -zxvf notfeed.tgz --strip-components 1 $(tar tf notfeed.tgz | grep /notfeed)
           chmod +x notfeed
