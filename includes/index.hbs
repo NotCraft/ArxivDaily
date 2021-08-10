@@ -15,7 +15,7 @@
 
 <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 <section class="header-container">
-    <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
         <div>
             <a href="https://github.com/AlongWY/ArxivDaily" style="text-decoration: none;">
                 <div class="header-title">
@@ -42,11 +42,11 @@
                 <details>
                     <Summary>{{title}}</Summary>
                     <div class="details-content">
-                        <p style="text-align:center;">{{description}}</p>
+                        <p class="channel-description">{{description}}</p>
                         {{#each items}}
                             <article>
                                 <details class="article-expander">
-                                    <summary class="article-expander__title">
+                                    <summary class="article-expander-title">
                                         {{highlight_title title dublin_core_ext.creators}}
                                     </summary>
                                     <div class="article-authors">
