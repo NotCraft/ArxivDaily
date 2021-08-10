@@ -305,6 +305,10 @@ footer {
     padding: 0.25em 1em;
 }
 
+.article-authors a {
+    text-decoration: none;
+}
+
 .article-expander-title {
     font-size: var(--font-size-m);
     font-weight: 600;
