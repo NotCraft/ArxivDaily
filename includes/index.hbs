@@ -40,13 +40,12 @@
         {{#each channels}}
             <article>
                 <details>
-                    <Summary>{{title}}</Summary>
+                    <Summary>
+                        {{#each dublin_core_ext.subjects as |subject|}}
+                            {{ subject }}
+                        {{/each}}
+                    </Summary>
                     <div class="details-content">
-                        <p class="channel-description">
-                            {{#each dublin_core_ext.subjects as |subject|}}
-                                {{ subject }}
-                            {{/each}}
-                        </p>
                         {{#each items}}
                             <article>
                                 <details class="article-expander">
