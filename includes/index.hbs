@@ -9,6 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link href="index.css" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
+          integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"
+            integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"
+            crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"
+            integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload="render(body)"></script>
 </head>
 
 <body>
@@ -42,7 +51,11 @@
                 <details>
                     <Summary>{{title}}</Summary>
                     <div class="details-content">
-                        <p class="channel-description">{{description}}</p>
+                        <p class="channel-description">
+                            {{#each dublin_core_ext.subjects as |subject|}}
+                                {{ subject }}
+                            {{/each}}
+                        </p>
                         {{#each items}}
                             <article>
                                 <details class="article-expander">
@@ -70,17 +83,15 @@
 </body>
 
 <footer>
-    <time id="build-timestamp" datetime="{{build_time}}">{{build_time}}</time>
+    <div>
+        <time id="build-timestamp" datetime="{{build_time}}">
+            <img src="https://img.shields.io/github/workflow/status/alongwy/arxivdaily/Rss%20Feed?label={{build_time
+                "%F %T %Z"}}&style=for-the-badge"
+            alt="{{build_time "%F %T %Z"}}">
+        </time>
+    </div>
 </footer>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"
-      integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"
-        integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"
-        crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"
-        integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"
-        crossorigin="anonymous"></script>
 <script>
     /* Exapand/Collapse with TAB key */
     var expanded = false;
@@ -115,10 +126,11 @@
     }
 
     // Render latex code
-    document.addEventListener("DOMContentLoaded", function () {
-        renderMathInElement(document.body, {
+    function render(body) {
+        renderMathInElement(body, {
             delimiters: [
                 {left: "$$", right: "$$", display: true},
+                {left: "${", right: "}", display: false},
                 {left: '$', right: '$', display: false},
                 {left: "\\(", right: "\\)", display: false},
                 {left: "\\begin{equation}", right: "\\end{equation}", display: true},
@@ -131,7 +143,7 @@
             ],
             throwOnError: false
         });
-    });
+    }
 </script>
 
 </html>
