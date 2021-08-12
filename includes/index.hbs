@@ -38,8 +38,9 @@
 
 {{#each days}}
     <section class="day-container">
-        <time datetime="{{datetime}}">{{time_format datetime "%F"}}</time>
-
+        <div class="date">
+            <time datetime="{{datetime}}">{{time_format datetime "%F"}}</time>
+        </div>
         {{#each channels}}
             <article>
                 <details>
@@ -79,46 +80,13 @@
     <div>
         <time id="build-timestamp" datetime="{{build_time}}">
             <a href="https://github.com/AlongWY/ArxivDaily/actions">
-                <img src="https://img.shields.io/github/workflow/status/alongwy/arxivdaily/Rss%20Feed?label={{build_time
+                <img id="build-timestamp-badge"
+                     src="https://img.shields.io/github/workflow/status/alongwy/arxivdaily/Rss%20Feed?label={{build_time
                     "%F %T %Z"}}&style=for-the-badge"
                 alt="{{build_time "%F %T %Z"}}">
             </a>
         </time>
     </div>
 </footer>
-
-<script>
-    /* Exapand/Collapse with TAB key */
-    var expanded = false;
-    document.onkeydown = function (e) {
-        if (e.keyCode === 9) {
-            expanded = !expanded;
-            document.querySelectorAll("details").forEach(detail => detail.open = expanded);
-            return false;
-        }
-    };
-
-    /* Switch Theme */
-    const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-
-    function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light'); //add this
-        } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); //add this
-        }
-    }
-
-    toggleSwitch.addEventListener('change', switchTheme, false);
-    const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'light') {
-            toggleSwitch.checked = true;
-        }
-    }
-</script>
-
+<script src="index.js"></script>
 </html>
