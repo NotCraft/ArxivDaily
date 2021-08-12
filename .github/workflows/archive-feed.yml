@@ -50,9 +50,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           biber-version: "latest"
       - name: Run Tectonic
-        run: |
-          tectonic --keep-intermediates --reruns 0 main.tex
-          tectonic target/output.tex
+        run:  tectonic target/output.tex
       - name: Upload pdf
         uses: actions/upload-artifact@v2
         with:
