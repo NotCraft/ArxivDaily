@@ -56,16 +56,17 @@
                                         {{highlight_title title dublin_core_ext.creators}}
                                     </summary>
                                     <div class="article-authors">
-                                        {{highlight_author dublin_core_ext.creators}}
+                                        <a href="{{link}}">
+                                            <i class="ri-home-line"></i>
+                                        </a>
                                         <a href="{{download link}}">
                                             <i class="ri-file-pdf-line"></i>
                                         </a>
+                                        {{highlight_author dublin_core_ext.creators}}
                                     </div>
-                                    <a class="article-summary-link article-summary-box-outer" href="{{link}}">
-                                        <div class="article-summary-box-inner">
-                                            <span>{{latex_render description}}</span>
-                                        </div>
-                                    </a>
+                                    <div class="article-summary-box-inner">
+                                        <span>{{latex_render description}}</span>
+                                    </div>
                                 </details>
                             </article>
                         {{/each}}
