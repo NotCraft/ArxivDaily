@@ -1,0 +1,60 @@
+name: AlongWY/ArxivDaily
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "30 12 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download NotFeed
+        env:
+          GITHUB_PAT: ${{ github.token }}
+          REPO: "NotCraft/NotFeed"
+          VERSION: "latest"
+          MATCH: "notfeed-.+-x86_64-unknown-linux-musl.tar.gz$"
+          RENAME: "notfeed.tgz"
+        shell: bash
+        run: |
+          curl -sL --fail \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${GITHUB_PAT}" \
+              "https://api.github.com/repos/${REPO}/releases/${VERSION}" \
+              | jq -r ".assets | .[] | select(.name | test(\"${MATCH}\")) | .url" \
+              | tee asset.url
+          curl -sL --fail \
+            -H "Accept: application/octet-stream" \
+            -H "Authorization: Bearer ${GITHUB_PAT}" \
+              -o "${RENAME}" \
+              "$(cat asset.url)"
+          tar -zxvf notfeed.tgz --strip-components 1 $(tar tf notfeed.tgz | grep /notfeed)
+          chmod +x notfeed
+      - name: Build rss
+        run: |
+          ./notfeed pdf
+      - uses: actions/cache@v2
+        name: Tectonic Cache
+        with:
+          path: ~/.cache/Tectonic
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
+      - uses: wtfjoke/setup-tectonic@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          biber-version: "latest"
+      - name: Run Tectonic
+        run: |
+          tectonic --keep-intermediates --reruns 0 main.tex
+          tectonic target/output.tex
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.date.outputs.date }}.pdf
+          path: target/output.pdf
