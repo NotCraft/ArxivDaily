@@ -51,8 +51,14 @@ jobs:
           biber-version: "latest"
       - name: Run Tectonic
         run:  tectonic target/output.tex
+      - name: Get Time
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: 'YYYY-MM-DD-HH-mm-ss'
       - name: Upload pdf
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.date.outputs.date }}.pdf
+          name: ${{ steps.time.outputs.time }}.pdf
           path: target/output.pdf
