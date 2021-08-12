@@ -2,13 +2,13 @@ site_title = "ArxivDaily"
 cache_max_days = 7
 sources = [
     "http://export.arxiv.org/rss/cs.CL",
-    "http://export.arxiv.org/rss/cs.IR",
-    "http://export.arxiv.org/rss/cs.MM",
-    "http://export.arxiv.org/rss/cs.CV",
-    "http://export.arxiv.org/rss/cs.LG"
+#    "http://export.arxiv.org/rss/cs.IR",
+#    "http://export.arxiv.org/rss/cs.MM",
+#    "http://export.arxiv.org/rss/cs.CV",
+#    "http://export.arxiv.org/rss/cs.LG"
 ]
 minify = true
-cache_url = "https://alongwy.top/ArxivDaily/cache.json"
+#cache_url = "https://alongwy.top/ArxivDaily/cache.json"
 
 #proxy = "socks5://127.0.0.1:7890"
 [scripts]

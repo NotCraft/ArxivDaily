@@ -14,11 +14,11 @@ const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"
 function switchTheme(e) {
     if (e.target.checked) {
         document.documentElement.setAttribute('data-theme', 'light');
-        document.getElementById("theme-icon").className = "lni lni-32 lni-sun";
+        document.getElementById("theme-icon").className = "ri-sun-line";
         localStorage.setItem('theme', 'light'); //add this
     } else {
         document.documentElement.setAttribute('data-theme', 'dark');
-        document.getElementById("theme-icon").className = "lni lni-32 lni-night";
+        document.getElementById("theme-icon").className = "ri-moon-line";
         localStorage.setItem('theme', 'dark'); //add this
     }
 }
