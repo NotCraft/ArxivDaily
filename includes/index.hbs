@@ -9,14 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link href="index.css" rel="stylesheet"/>
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
     <script type="text/javascript" id="MathJax-script" async
             src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js">
     </script>
 </head>
 
 <body>
-
-<link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 <section class="header-container">
     <div style="display:flex; justify-content:space-between; align-items:flex-end;">
         <div>
@@ -30,7 +29,7 @@
         <div class=icons>
             <label class="theme-switch" for="checkbox">
                 <input type="checkbox" id="checkbox"/>
-                <i class="lni lni-32 lni-sun" rel="noopener noreferrer"></i>
+                <i id="theme-icon" class="lni lni-32 lni-sun" rel="noopener noreferrer"></i>
             </label>
         </div>
     </div>
@@ -58,6 +57,9 @@
                                     </summary>
                                     <div class="article-authors">
                                         {{highlight_author dublin_core_ext.creators}}
+                                        <a href="{{download link}}">
+                                            <i class="lni lni-download"></i>
+                                        </a>
                                     </div>
                                     <a class="article-summary-link article-summary-box-outer" href="{{link}}">
                                         <div class="article-summary-box-inner">

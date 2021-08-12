@@ -14,9 +14,11 @@ const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"
 function switchTheme(e) {
     if (e.target.checked) {
         document.documentElement.setAttribute('data-theme', 'light');
+        document.getElementById("theme-icon").className = "lni lni-32 lni-night";
         localStorage.setItem('theme', 'light'); //add this
     } else {
         document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById("theme-icon").className = "lni lni-32 lni-sun";
         localStorage.setItem('theme', 'dark'); //add this
     }
 }
