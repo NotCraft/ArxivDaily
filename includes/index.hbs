@@ -38,7 +38,7 @@
 
 {{#each days}}
     <section class="day-container">
-        <div class="date">{{date}}</div>
+        <time datetime="{{datetime}}">{{time_format datetime "%F"}}</time>
 
         {{#each channels}}
             <article>
