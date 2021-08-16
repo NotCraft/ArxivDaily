@@ -4,11 +4,13 @@ An RSS feed reader for "ArxivDaily".
 
 ## Features
 
-- Display the authors information in the `details`.
+- Display the authors' information in the `details`.
 - Highlight specific `keywords` in the title and authors of the paper.
 - Distinguish whether a paper is a new submission or an update one by the prefix `♻`.
 - Distinguish whether a paper is written by your highlighted author by the prefix `☆` or `★`.
 - Expand/Collapse all articles with `Tab` key.
+- Pre-render latex snippet to MATHML.
+- Light/Dark mode support.
 
 ## Usage
 
