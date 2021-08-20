@@ -8,7 +8,7 @@ sources = [
     "http://export.arxiv.org/rss/cs.LG"
 ]
 minify = true
-cache_url = "https://alongwy.top/ArxivDaily/cache.json"
+cache_url = "https://arxiv.alongwy.top/cache.json"
 
 #proxy = "socks5://127.0.0.1:7890"
 [scripts]
