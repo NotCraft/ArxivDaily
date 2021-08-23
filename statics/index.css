@@ -21,7 +21,7 @@
     /* Typograph */
     --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
     sans-serif;
-    --font-size-scaler: calc(0.25em + 0.8vmin);
+    --font-size-scaler: 62.5%;
     --font-size-m: 1.6rem;
     --font-size-s: 1.4rem;
 
