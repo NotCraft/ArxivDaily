@@ -7,6 +7,7 @@
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
 \usepackage{hyperref}
 \usepackage{times}
+\usepackage{underscore}
 
 % 设置字体
 \usepackage{newtxtext}
@@ -60,10 +61,8 @@ urlcolor        =   nord11,        %[magenta]
         {{/each}}
         {{#each items}}
             \subsubsection{ {{only_title title}} }
-
-            \noindent [\href{ {{link}} }{PDF}] {{ render_author dublin_core_ext.creators }}
-
-            {{description}}
+            {{ latex_escape description }}
+            {{ download link }}
         {{/each}}
     {{/each}}
 {{/each}}
