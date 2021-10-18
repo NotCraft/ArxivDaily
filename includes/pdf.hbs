@@ -60,9 +60,9 @@ urlcolor        =   nord11,        %[magenta]
             \subsection{ {{subject}} }
         {{/each}}
         {{#each items}}
-            \subsubsection{ {{only_title title}} }
+            \subsubsection{ {{pdf_only_title title}} }
             {{ latex_escape description }}
-            {{ download link }}
+            {{ pdf_download link }}
         {{/each}}
     {{/each}}
 {{/each}}
