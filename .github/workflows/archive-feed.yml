@@ -1,9 +1,6 @@
 name: Archive AlongWY/ArxivDaily
 
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "30 12 * * 0"
 
