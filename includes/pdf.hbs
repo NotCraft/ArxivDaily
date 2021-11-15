@@ -8,6 +8,7 @@
 \usepackage{hyperref}
 \usepackage{times}
 \usepackage{underscore}
+\usepackage{fontawesome5}
 
 % 设置字体
 \usepackage{newtxtext}
@@ -60,10 +61,11 @@ urlcolor        =   nord11,        %[magenta]
             \subsection{ {{subject}} }
         {{/each}}
         {{#each items}}
-            \subsubsection{ {{pdf_only_title title}} }
-            {{ render_author dublin_core_ext.creators }}
+            \subsubsection{ {{pdf_highlight_title title dublin_core_ext.creators}} }
+            {{ pdf_highlight_author dublin_core_ext.creators }}
 
             {{ latex_escape description }}
+
             {{ pdf_download link }}
         {{/each}}
     {{/each}}

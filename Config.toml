@@ -13,9 +13,9 @@ cache_url = "https://arxiv.alongwy.top/cache.json"
 #proxy = "socks5://127.0.0.1:7890"
 [scripts]
 download = "scripts/download.rhai"
-render_author = "scripts/render_author.rhai"
 highlight_title = "scripts/highlight_title.rhai"
 highlight_author = "scripts/highlight_author.rhai"
 
 pdf_download = "scripts/pdf_download.rhai"
-pdf_only_title = "scripts/pdf_only_title.rhai"
+pdf_highlight_title = "scripts/pdf_highlight_title.rhai"
+pdf_highlight_author = "scripts/pdf_highlight_author.rhai"
