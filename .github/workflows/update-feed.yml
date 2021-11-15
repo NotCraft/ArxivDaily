@@ -8,7 +8,7 @@ on:
     # Adjust refresh schedule here. By default, it runs once per day.
     # Syntax reference: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule
     # Recommended tool: https://crontab.guru/
-    - cron: "0,15,30,45 1,12,23 * * 1-5"
+    - cron: "0,30 1,2,12,23 * * 1-5"
 
 jobs:
   build:
