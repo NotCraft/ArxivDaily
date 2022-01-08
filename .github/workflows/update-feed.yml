@@ -8,7 +8,7 @@ on:
     # Adjust refresh schedule here. By default, it runs once per day.
     # Syntax reference: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule
     # Recommended tool: https://crontab.guru/
-    - cron: "0,30 1,2,12,23 * * 1-5"
+    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Download NotFeed
+      - name: Download ArxivFeed
         env:
           GITHUB_PAT: ${{ github.token }}
-          REPO: "NotCraft/NotFeed"
+          REPO: "NotCraft/ArxivFeed"
           VERSION: "latest"
-          MATCH: "notfeed-.+-x86_64-unknown-linux-musl.tar.gz$"
-          RENAME: "notfeed.tgz"
+          MATCH: "arxivfeed-.+-x86_64-unknown-linux-musl.tar.gz$"
+          RENAME: "arxivfeed.tgz"
         shell: bash
         run: |
           curl -sL --fail \
@@ -36,10 +36,10 @@ jobs:
             -H "Authorization: Bearer ${GITHUB_PAT}" \
               -o "${RENAME}" \
               "$(cat asset.url)"
-          tar -zxvf notfeed.tgz --strip-components 1 $(tar tf notfeed.tgz | grep /notfeed)
-          chmod +x notfeed
+          tar -zxvf arxivfeed.tgz --strip-components 1 $(tar tf arxivfeed.tgz | grep /arxivfeed)
+          chmod +x arxivfeed
       - name: Build rss
-        run: ./notfeed build
+        run: ./arxivfeed
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

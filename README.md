@@ -17,8 +17,3 @@ An RSS feed reader for "ArxivDaily".
 - Click the `title` to expand it and have a close look at its abstract.
 - Click the `abstract` to jump to the arxiv page of the paper.
 - Customize highlight keywords list in `config.rhai` and corresponding CSS style in `index.css`.
-
-## Links and references
-
-- [NotFeed Template](https://github.com/NotCraft/NotFeed-Template)
-- Powered By [NotFeed](https://github.com/NotCraft/NotFeed)
