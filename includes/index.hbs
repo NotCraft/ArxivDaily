@@ -79,7 +79,7 @@
                             <article>
                                 <details class="article-expander">
                                     <summary class="article-expander-title">
-                                        {{#if (eq updated published)}}♻{{/if}} {{highlight_title title authors}}
+                                        {{#if (ne updated published)}}♻{{/if}} {{highlight_title title authors}}
                                     </summary>
                                     <div class="article-authors">
                                         <a href="{{id}}">
