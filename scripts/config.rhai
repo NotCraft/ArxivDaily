@@ -28,7 +28,7 @@ let meetings = [
 
 let start = meetings.shift();
 let meetings_rg = meetings.reduce(|sum, v| sum + "|" + v, start);
-let meetings_rg = "(" + meetings_rg + ")([\\s|']*\\d+)?";
+let meetings_rg = "(" + meetings_rg + ")([\\s'-]*\\d+)?";
 
 let start = titles.shift();
 let title_rg = titles.reduce(|sum, v| sum + "|" + v, start);
