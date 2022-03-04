@@ -1,7 +1,7 @@
 import "scripts/config" as cfg;
 let comment = params[0];
 
-let meetings_rg = RegexCaseInsensitive(`(?P<key>(${cfg::meetings_rg}))`);
+let meetings_rg = Regex(`(?P<key>(${cfg::meetings_rg}))`);
 
 if comment != () {
     let meeting = meetings_rg.find(comment);

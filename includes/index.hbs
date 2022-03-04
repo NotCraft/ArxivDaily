@@ -93,9 +93,11 @@
                                     <div class="article-summary-box-inner">
                                         <span>{{summary}}</span>
                                     </div>
-                                    <div class="article-summary-box-inner">
-                                        <span class="chip">comment</span>: <span>{{comment}}</span>
-                                    </div>
+                                    {{#if comment}}
+                                        <div class="article-summary-box-inner">
+                                            <span class="chip">comment</span>: <span>{{comment}}</span>
+                                        </div>
+                                    {{/if}}
                                 </details>
                             </article>
                         {{/each}}
