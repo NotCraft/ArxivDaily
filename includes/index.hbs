@@ -79,7 +79,7 @@
                             <article>
                                 <details class="article-expander">
                                     <summary class="article-expander-title">
-                                        {{#if (ne updated published)}}♻{{/if}} {{highlight_title title authors}}
+                                        {{#if (ne updated published)}}♻{{/if}} {{highlight_title title authors}} {{highlight_meeting comment}}
                                     </summary>
                                     <div class="article-authors">
                                         <a href="{{id}}">
@@ -92,6 +92,9 @@
                                     </div>
                                     <div class="article-summary-box-inner">
                                         <span>{{summary}}</span>
+                                    </div>
+                                    <div class="article-summary-box-inner">
+                                        <span class="chip">comment</span>: <span>{{comment}}</span>
                                     </div>
                                 </details>
                             </article>

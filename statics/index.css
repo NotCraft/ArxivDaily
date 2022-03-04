@@ -33,6 +33,9 @@
     --header-container: var(--nord00);
     --header-title-preffix: var(--nord0F);
 
+    --chip-font: var(--nord08);
+    --chip-color: var(--nord0B);
+
     --icons: var(--nord06);
     --icons-hover: var(--nord0F);
 
@@ -94,6 +97,9 @@
     --background-color: var(--nord04);
 
     /* Components */
+
+    --chip-font: var(--nord06);
+    --chip-color: var(--nord09);
 
     --body-color: var(--background-color);
     --body-bg: var(--background);
@@ -334,4 +340,16 @@ footer {
 
 .theme-switch input {
     display: none;
+}
+
+/* chip */
+.chip {
+    font-size: 90%;
+    align-items: center;
+    color: var(--chip-font);
+    background: var(--chip-color);
+    border-radius: 5rem;
+    display: inline-flex;
+    padding: .2rem .4rem;
+    vertical-align: middle;
 }
