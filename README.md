@@ -1,4 +1,4 @@
-# ArxivDaily [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/NotCraft/ArxivDaily/Update?style=for-the-badge)](https://github.com/NotCraft/ArxivDaily/actions)
+# ArxivDaily [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/NotCraft/ArxivDaily/update-feed.yml?style=for-the-badge)](https://github.com/NotCraft/ArxivDaily/actions)
 
 An RSS feed reader for "ArxivDaily".
 
