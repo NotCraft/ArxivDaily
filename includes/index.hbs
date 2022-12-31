@@ -49,7 +49,7 @@
         <div>
             <a href="https://github.com/AlongWY/ArxivDaily" style="text-decoration: none;">
                 <div class="header-title">
-                    <span class="header-title-preffix">AlongWY</span>//ArxivDaily
+                    <span class="header-title-preffix">NotCraft</span>//ArxivDaily
                 </div>
             </a>
         </div>
@@ -79,7 +79,7 @@
                             <article>
                                 <details class="article-expander">
                                     <summary class="article-expander-title">
-                                        {{#if (ne updated published)}}♻{{/if}} {{highlight_title title authors}} {{highlight_meeting comment}}
+                                        {{#if (ne updated published)}}♻{{/if}} {{highlight_title title authors}} {{highlight_conference comment}}
                                     </summary>
                                     <div class="article-authors">
                                         <a href="{{id}}">
@@ -113,9 +113,9 @@
 <footer>
     <div>
         <time id="build-timestamp" datetime="{{build_time}}">
-            <a href="https://github.com/AlongWY/ArxivDaily/actions">
+            <a href="https://github.com/NotCraft/ArxivDaily/actions">
                 <img id="build-timestamp-badge"
-                     src="https://img.shields.io/github/workflow/status/alongwy/arxivdaily/Rss%20Feed?label={{time_format
+                     src="https://img.shields.io/github/workflow/status/NotCraft/ArxivDaily/Update?label={{time_format
                     build_time "%F %T %Z"}}&style=for-the-badge"
                 alt="{{time_format build_time "%F %T %Z"}}">
             </a>

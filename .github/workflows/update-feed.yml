@@ -1,4 +1,4 @@
-name: AlongWY/ArxivDaily
+name: Update
 
 on:
   workflow_dispatch:
